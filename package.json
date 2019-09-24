@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/ilikeblink182too/project3/issues"
   },
-  "homepage": "https://github.com/ilikeblink182too/project3#readme"
+  "homepage": "https://github.com/ilikeblink182too/project3#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.7.1",
+    "react-router-dom": "^5.0.1"
+  }
 }
