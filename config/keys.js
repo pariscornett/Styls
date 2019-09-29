@@ -1,3 +1,4 @@
 module.exports = {
-    MONGO_URI: 'mongodb://localhost/stylsdb'
+    database: 'mongodb://localhost:27017/stylsdb',
+    secretOrKey: process.env.SECRET_OR_KEY
 };

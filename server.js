@@ -3,6 +3,7 @@ const path = require("path");
 const passport = require("passport");
 const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
+require('dotenv').config()
 //const logger = require("morgan");
 
 const app = express();
@@ -17,7 +18,7 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // Passport config
-//require("./config/passport")(passport);
+require("./config/passport")(passport);
 
 // Routes
 //require("./routes/api/use")(app);
@@ -26,7 +27,7 @@ app.use(passport.initialize());
 const db = require("./config/keys").MONGO_URI;
 
 // Connect to the Mongo DB
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost:/stylsdb", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected!"))
   .catch(err => console.log("There was an issue with the db connection" + err)); 
 
