@@ -7,7 +7,7 @@ const keys = require("../config/keys");
 
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-options.MONGO_URI = keys.MONGO_URI;
+options.secretOrKey = keys.secretOrKey;
 
 module.exports= passport => {
 

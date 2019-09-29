@@ -21,10 +21,10 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-//require("./routes/api/use")(app);
+require("./routes/api/user")(app);
 
 // Models
-const db = require("./config/keys").MONGO_URI;
+const db = require("./config/keys").SECRET_OR_KEY;
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost:/stylsdb", { useNewUrlParser: true })
