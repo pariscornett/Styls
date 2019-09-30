@@ -26,6 +26,12 @@ require("./routes/api/user")(app);
 // Models
 const db = require("./config/keys").SECRET_OR_KEY;
 
+//16:20
+const fileRoutes = require("./routes/file-upload")
+
+//16:00 add routes
+app.use("/api/v1/", fileRoutes)
+
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost:/stylsdb", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected!"))
