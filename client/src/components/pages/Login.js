@@ -1,10 +1,6 @@
-// Login page component created
-// Paris, this is just a starting place -- if you need something different for your authentication, let me know!
-
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -18,47 +14,77 @@ export default class Login extends Component {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  }
+  handleChange = (event) => {
+    console.log("handle change", event);
+  
+    const {name, value} = event.target;
 
-  handleSubmit = event => {
-    event.preventDefault();
-  }
+    this.setState({
+      [name]:value
+    });
+};
+
+handleSubmit = (event) => {
+  console.log("form submited");
+  event.preventDefault();
+}
 
   render() {
     return (
-      <div className="Login">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
-            <FormControl
-              autoFocus
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
+      <>
+        <h1>Login with Styls</h1>
+        <div className="Login">
+          <form onSubmit={this.handleSubmit}>
+            <input type="email" 
+              name="email" 
+              placeholder="Email" 
+              value={this.state.email} 
+              onChange={this.handleChange} 
+              required 
             />
-          </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
+
+            <br />
+            <br />
+
+            <input type="password" 
+              name="password" 
+              placeholder="Password" 
+              value={this.state.password} 
+              onChange={this.handleChange} 
+              required 
             />
-          </FormGroup>
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
-            Login
-          </Button>
-        </form>
-      </div>
+            {/* <formGroup controlId="email" bsSize="large">
+              <controlLabel>Email</controlLabel>
+              <formControl
+                autoFocus
+                type="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </formGroup>
+            <formGroup controlId="password" bsSize="large">
+              <controlLabel>Password</controlLabel>
+              <formControl
+                value={this.state.password}
+                onChange={this.handleChange}
+                type="password"
+              />
+            </formGroup> */}
+            <br />
+            <br />
+            <button
+              block
+              bsSize="large"
+              disabled={!this.validateForm()}
+              type="submit"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </>
     );
   }
 }
+
+export default Login;

@@ -6,7 +6,7 @@ function Footer() {
 
 
 <footer className="page-footer font-small blue pt-4">
-  <div className="footer-copyright text-center py-3">© 2019 Copyright:
+  <div className="footer-copyright text-center py-3">Copyright © | 2019
     {/* <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a> */}
   </div>
 

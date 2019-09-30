@@ -21,7 +21,7 @@ function Navbar() {
         </div>
       </li>
       <li className="nav-item">
-          <div className="nav-link" to="../pages/Registion">
+          <div className="nav-link" Link="../pages/Registion">
           Register
         </div>
       </li>
