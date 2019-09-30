@@ -1,31 +1,61 @@
 import React, { Component } from "react";
 
-export default class Registration extends Component {
+class Registration extends Component {
     constructor(props) {
        super(props);
 
        this.state = {
+          firstName: "",
+          lastName: "",
           email: "",
           password: "",
           password_confirmation: "",
           registrationErrors: ""
        }
        
-       this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-    handleChange(event) {
+    handleChange = (event) => {
         console.log("handle change", event);
-    }
+      
+        const {name, value} = event.target;
     
-    handleSubmit(event) {
+        this.setState({
+          [name]:value
+        });
+    };
+    
+    handleSubmit = (event) => {
         console.log("form submited");
         event.preventDefault();
     }
     
     render() {
         return (<div> 
+            <h1>Register with Styls</h1>
             <form onSubmit={this.handleSubmit}>
+                <input type="text" 
+                  name="firstName" 
+                  placeholder="First Name" 
+                  value={this.state.firstName} 
+                  onChange={this.handleChange} 
+                  required 
+                />
+
+                <br />
+                <br />
+
+                <input type="text" 
+                  name="lastName" 
+                  placeholder="Last Name" 
+                  value={this.state.lastName} 
+                  onChange={this.handleChange} 
+                  required 
+                />
+
+                <br />
+                <br />
+
                 <input type="email" 
                   name="email" 
                   placeholder="Email" 
@@ -33,6 +63,10 @@ export default class Registration extends Component {
                   onChange={this.handleChange} 
                   required 
                 />
+
+                <br />
+                <br />
+
                 <input type="password" 
                   name="password" 
                   placeholder="Password" 
@@ -40,6 +74,10 @@ export default class Registration extends Component {
                   onChange={this.handleChange} 
                   required 
                 />
+
+                <br />
+                <br />
+
                 <input type="password" 
                   name="password_confirmation" 
                   placeholder="Password confirmation" 
@@ -47,9 +85,13 @@ export default class Registration extends Component {
                   onChange={this.handleChange} 
                   required 
                 />
-                
+                <br />
+                <br />
+
                 <button type="submit">Register</button>
             </form>
         </div>);
     }
 }
+
+export default Registration;
