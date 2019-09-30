@@ -4,11 +4,14 @@ const passport = require("passport");
 const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 require('dotenv').config()
-//const logger = require("morgan");
+const logger = require("morgan");
 
 const app = express();
 
 require("dotenv").config();
+
+// Use morgan logger for logging requests
+app.use(logger("dev"));
 
 // Express middleware
 app.use(express.urlencoded({ extended: false })); // Bodyparser
@@ -24,10 +27,12 @@ require("./config/passport")(passport);
 require("./routes/api/user")(app);
 
 // Models
+// Requiring the `User` model for accessing the `users` collection
+var User = require("./models/User");
 const db = require("./config/keys").SECRET_OR_KEY;
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost:/stylsdb", { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost/stylsdb", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected!"))
   .catch(err => console.log("There was an issue with the db connection" + err)); 
 
