@@ -15,8 +15,10 @@ module.exports = function (app) {
     // @route POST /api/user
     // @desc creates a new user (references class activity 18 in the Mongo/Mongoose folder)
     app.post("/api/user", function (req, res){
+        const { firstName, lastName, email, password } = req.body;
+
         User.findOne({
-            email: req.body.email
+            email
           }).then(user => {
             if (user) {
               return res.status(400).json({
@@ -25,10 +27,10 @@ module.exports = function (app) {
             } else {
         
               const newUser = new User({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                password: req.body.password,
+                firstName,
+                lastName,
+                email,
+                password,
                 date: Date.now
               });
         
