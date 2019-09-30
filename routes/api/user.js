@@ -49,6 +49,56 @@ module.exports = function (app) {
     })
 });
 
+  // @route POST api/user/login
+  // @desc logs in a user
+  app.post("/api/user/login", (req, res) => {
+    const { email, password } = req.body;
+
+    User.findOne({
+      email
+    })
+    .then(user => {
+      if(!user) {
+       errors.email = "User not found";
+       return res.status(404).json(errors);
+      }
+
+      //compare the passwords
+      bcrypt.compare(password, user.password)
+            .then(isMatch => {
+              if(isMatch) {
+                // User.findOne({
+                //   _id: user.ObjectId
+                // })
+                //create the payload
+                const payload = {
+                  _id: user.ObjectId,
+                  email: user.email,
+                  firstName: user.firstName,
+                  lastName: user.lastName
+                }
+
+                  jwt.sign(
+                    payload,
+                    keys.secretOrKey,
+                    { expiresIn: 3600 * 12 },
+                    (err, token) => {
+                      res.json({
+                        success:true,
+                        token: `Bearer ${token}`
+                      });
+                    }
+                  );
+              } else {
+                return res.status(400).json({
+                  msg: "Incorrect password, try again"
+                })
+              }
+            })
+           
+    })
+  })
+
 }
 
 
