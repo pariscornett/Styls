@@ -12,8 +12,15 @@ const singleUpload = upload.single('image');
 router.post('/image-upload', function(req,res){
 
     singleUpload(req,res, function(err) {
-        return res.json({'imageUrl':req.file.location})
-    })
+
+
+        //31:50 added error handling
+        if (err){
+            return res.status(422).send({errors: [{title: 'File Upload Error', detail: err.message}] });
+        }
+
+        return res.json({'imageUrl': req.file.location});
+    });
 });
 
 

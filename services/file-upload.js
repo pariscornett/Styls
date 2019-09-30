@@ -11,13 +11,25 @@ aws.config.update({
 })
 
 //create S3 instance
-const s3 = new aws.S3()
+const s3 = new aws.S3();
+
+//25:20
+//makes sure the user uploaded a jpeg or png and nothing else
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+        cb(null, true)
+    } else {
+        cb(new Error('Invalid Mime Type, only JPEG and PNG'), false);
+    }
+}
  
 //create upload object from multer
 const upload = multer({
-  storage: multerS3({
+    fileFilter,
+    storage: multerS3({
     s3: s3,
     bucket: 'styl-project',
+    acl: 'public-read',
     metadata: function (req, file, cb) {
       cb(null, {fieldName: file.fieldname});
     },
