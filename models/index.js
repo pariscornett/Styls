@@ -2,5 +2,6 @@
 
 module.exports = {
    User: require("./User"),
+   AllUsers: require("./AllUsers")
 };
   

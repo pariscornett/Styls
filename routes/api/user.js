@@ -1,11 +1,10 @@
 module.exports = function (app) {
     const passport = require("passport");
     const mongoose = require("mongoose");
-    const bycrpt = require("bcryptjs");
+    const bcrypt = require("bcryptjs");
     const jwt = require("jsonwebtoken");
-    const db = require("../../models");
     const keys = require("../../config/keys");
-    
+    const User = require("../../models/User");
     app.get("/api/user/test",passport.authenticate("jwt", {session: false}),(req, res) => {
         res.json({
             success: true,
@@ -57,27 +56,39 @@ module.exports = function (app) {
     // @route POST /api/user
     // @desc creates a new user (references class activity 18 in the Mongo/Mongoose folder)
     app.post("/api/user", function (req, res){
-        const newUser = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password,
-            date: Date.now
-        };
-    
-        db.User.create(newUser)
-            .then(function(newUser){
-                res.status(200).json({
-                    msg: newUser.firstName + "'s account was successfully created!"
-                })
-            })
-            .catch(function(err){
-                res.status(500).json({
-                    msg: "We encountered an error creating a new user"
-                })
-            })
+        User.findOne({
+            email: req.body.email
+          }).then(user => {
+            if (user) {
+              return res.status(400).json({
+                  msg: "This user already exists"
+              });
+            } else {
+        
+              const newUser = new User({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: req.body.password,
+                date: Date.now
+              });
+        
+              bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newUser.password, salt, (err, hash) => {
+                  if (err) throw err;
+                  newUser.password = hash;
+                  newUser
+                    .save()
+                    .then(user => res.json(user))
+                    .catch(err => console.log(err));
+                });
+            });
+        }
+            
     })
-};
+});
+
+}
 
 
 
