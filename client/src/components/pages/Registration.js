@@ -33,7 +33,7 @@ class Registration extends Component {
     
     render() {
         return (<div> 
-            <h1>Register with Styls</h1>
+            <h2>Register with Styls</h2>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" 
                   name="firstName" 

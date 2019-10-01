@@ -3,11 +3,16 @@ import React from 'react';
 
 function CreateCloset(props) {
     return (
-        <div>
-            <h1>Add Item</h1>
+        <div className="container">
+            <form>
+                <div className="form-group">
+                    <label for="exampleFormControlFile1">Upload Clothing</label>
+                    <input type="file" className="form-control-file" id="exampleFormControlFile1" />
+                </div>
+            </form>
         </div>
     )
 }
 
 
-export default CreateCloset
+export default CreateCloset;

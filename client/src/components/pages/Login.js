@@ -32,7 +32,7 @@ handleSubmit = (event) => {
   render() {
     return (
       <>
-        <h1>Login with Styls</h1>
+        <h2>Login with Styls</h2>
         <div className="Login">
           <form onSubmit={this.handleSubmit}>
             <input type="email" 
@@ -53,23 +53,6 @@ handleSubmit = (event) => {
               onChange={this.handleChange} 
               required 
             />
-            {/* <formGroup controlId="email" bsSize="large">
-              <controlLabel>Email</controlLabel>
-              <formControl
-                autoFocus
-                type="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-            </formGroup>
-            <formGroup controlId="password" bsSize="large">
-              <controlLabel>Password</controlLabel>
-              <formControl
-                value={this.state.password}
-                onChange={this.handleChange}
-                type="password"
-              />
-            </formGroup> */}
             <br />
             <br />
             <button

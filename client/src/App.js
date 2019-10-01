@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
 import Login from './components/pages/Login';
+import CreateCloset from './components/pages/CreateCloset';
 
 
 function App() {
@@ -11,12 +12,12 @@ function App() {
     
     <div className="App">
       <Navbar />
-        <h1>Root Page</h1>
-        <Login />
-      
+        <img src="../public/assets/images/styls.png" alt="Styls Logo" />
+        <CreateCloset />
       <Footer />
     </div>
   );
 }
 
 export default App;
+
