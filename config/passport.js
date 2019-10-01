@@ -18,7 +18,7 @@ module.exports= passport => {
              })
              .then(User => {
                 if(User) {
-                    return done(null, User); //runs if successful
+                    return done(null, user); //runs if successful
                 }
                 return done(null, false); //runs if unsuccessful
              })

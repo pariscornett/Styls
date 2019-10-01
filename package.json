@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/ilikeblink182too/project3#readme",
   "dependencies": {
+    "aws-sdk": "^2.538.0",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.2",
@@ -36,9 +37,11 @@
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
+    "multer": "^1.4.2",
     "nodemon": "^1.19.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-bootstrap": "^1.0.0-beta.12",
     "react-router-dom": "^5.0.1"
   }
 }

@@ -6,7 +6,10 @@ const mongoose = require("mongoose");
 require('dotenv').config()
 const logger = require("morgan");
 
+
 const app = express();
+
+
 
 require("dotenv").config();
 
@@ -30,6 +33,12 @@ require("./routes/api/user")(app);
 // Requiring the `User` model for accessing the `users` collection
 var User = require("./models/User");
 const db = require("./config/keys").SECRET_OR_KEY;
+
+//16:20
+const fileRoutes = require("./routes/file-upload")
+
+//16:00 add routes
+app.use("/api/v1/", fileRoutes)
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/stylsdb", { useNewUrlParser: true })
