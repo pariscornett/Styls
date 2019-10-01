@@ -12,7 +12,7 @@ function App() {
     
     <div className="App">
       <Navbar />
-        <img src="../public/assets/images/styls.png" alt="Styls Logo" />
+        <img src="./assets/images/styls.png" alt="Styls Logo" />
         <CreateCloset />
       <Footer />
     </div>
