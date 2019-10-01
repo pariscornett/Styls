@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
+
 import CreateCloset from './components/CreateCloset';
 import axios from "axios";
-
+import Navbar from './components/layouts/Navbar';
+import Footer from './components/layouts/Footer';
+import Login from './components/pages/Login';
 
 class App extends React.Component {
 state={
-  user:{
-
-  }
+  user:{}
 }
   componentDidMount(){
     axios.get("/api/user/current/")
@@ -21,12 +22,18 @@ state={
   render(){
     return (
       <div className="App">
-      <h1>Root Page</h1>
-      <CreateCloset />
-      </div>
+      <Navbar />
+        <img src="./assets/images/styls.png" alt="Styls Logo" />
+        <CreateCloset />
+      <Footer />
+    </div>
     );
   }
   
+
+
+
 }
 
 export default App;
+

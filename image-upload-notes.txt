@@ -1,0 +1,10 @@
+https://www.youtube.com/watch?v=ASuU4km3VHE Simple Image Upload with Node on Amazon S3
+
+0:00 - Set up S3 on AWS, create bucket and access key
+4:35 - npm install multer, multer-s3, aws-sdk
+6:58 - create services folder and file-upload.js, copy code from multer-s3 from npmjs.com info file
+13:00 - create image-upload.js inside routes folder
+16:00 added route to server.js
+16:20 added a require to server.js
+16:45 inside routes folder, changed name of image-upload.js to file-upload.js for consistency
+19:00 testing using postman

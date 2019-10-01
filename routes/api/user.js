@@ -1,4 +1,5 @@
 module.exports = function (app) {
+
     const passport = require("passport");
     const mongoose = require("mongoose");
     const bcrypt = require("bcryptjs");
@@ -7,13 +8,18 @@ module.exports = function (app) {
     const User = require("../../models/User");
     const multer = require('multer');
     const fs = require('fs');
+    const User = '../../models/User';
 
-    app.get("/api/user/test",passport.authenticate("jwt", {session: false}),(req, res) => {
+
+    //Test Route
+    app.get("/api/user/test", (req, res) => {
+
         res.json({
             success: true,
             msg: "Testing endpoint works!"
         });
     });
+
 
     // @route POST /api/user
     // @desc creates a new user (references class activity 18 in the Mongo/Mongoose folder)
@@ -155,7 +161,5 @@ User.update({
 })
 
 }
-
-
 
 
