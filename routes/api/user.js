@@ -5,6 +5,9 @@ module.exports = function (app) {
     const jwt = require("jsonwebtoken");
     const keys = require("../../config/keys");
     const User = require("../../models/User");
+    const multer = require('multer');
+    const fs = require('fs');
+
     app.get("/api/user/test",passport.authenticate("jwt", {session: false}),(req, res) => {
         res.json({
             success: true,
@@ -98,6 +101,58 @@ module.exports = function (app) {
            
     })
   })
+app.get("/api/user/current/", passport.authenticate("jwt",{session:false}),(req,res) =>{
+  User.findById(req.user.id, (err,user) => {
+    res.json(user);
+  })
+})
+
+
+// Set multer storage
+var storage = multer.diskStorage({
+  // Set destination to ./uploads in root of node application
+  destination: function(req, file, cb) {
+      cb(null, 'uploads');
+  },
+
+  // alter the file name to be the field name plus the current date
+  filename: function(req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now());
+  }
+});
+
+// set the upload variable
+var upload = multer({ storage: storage });
+
+// upload route
+app.post('/upload', passport.authenticate("jwt",{session:false}), upload.single('recfile'), (req, res) => {
+  // get the file path
+  var img = fs.readFileSync(req.file.path);
+
+  // encode the image
+  var encode_image = img.toString('base64');
+
+  console.log(req.body);
+  // Ddfine a JSON for the image attributes for saving to database
+  var newItem = {
+      category: req.body.category,
+      description: req.body.description,
+      contentType: req.file.mimetype,
+      image: new Buffer(encode_image, 'base64')
+  };
+
+  // create a new photo item in the db (need to change this to add to user)
+
+User.update({
+  _id:req.user.id},
+  {$push:{clothingItems:newItem}
+
+}) .then(file => {
+  res.json({ msg: 'File successfully uploaded' });
+})
+.catch(err => console.log(err));
+
+})
 
 }
 

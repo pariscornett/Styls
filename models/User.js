@@ -22,6 +22,14 @@ const UserSchema = new Schema ({
         type: String, 
         required: true 
     },
+    clothingItems: [
+        {
+            contentType: String,
+            image: Buffer,
+            description: String,
+            category: String
+        }
+    ],
     Date: {
         type: Date,
         default: Date.now
