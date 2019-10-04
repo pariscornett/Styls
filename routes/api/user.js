@@ -8,7 +8,7 @@ module.exports = function (app) {
     const User = require("../../models/User");
     const multer = require('multer');
     const fs = require('fs');
-    const User = '../../models/User';
+    // const User = '../../models/User';
 
 
     //Test Route
@@ -107,11 +107,11 @@ module.exports = function (app) {
            
     })
   })
-app.get("/api/user/current/", passport.authenticate("jwt",{session:false}),(req,res) =>{
-  User.findById(req.user.id, (err,user) => {
-    res.json(user);
-  })
-})
+// app.get("/api/user/current/", passport.authenticate("jwt",{session:false}),(req,res) =>{
+//   User.findById(req.user.id, (err,user) => {
+//     res.json(user);
+//   })
+// })
 
 
 // Set multer storage
