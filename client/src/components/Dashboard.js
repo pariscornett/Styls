@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
 
 class Dashboard extends Component {
 

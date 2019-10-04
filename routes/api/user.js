@@ -8,8 +8,7 @@ module.exports = function (app) {
     const User = require("../../models/User");
     const multer = require('multer');
     const fs = require('fs');
-    // const User = '../../models/User';
-
+ 
 
     //Test Route
     app.get("/api/user/test", (req, res) => {

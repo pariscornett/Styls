@@ -26,13 +26,13 @@ require("./routes/api/user")(app);
 
 // Models
 // Requiring the `User` model for accessing the `users` collection
-var User = require("./models/User");
+const User = require("./models/User");
 const db = require("./config/keys").SECRET_OR_KEY;
 
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/stylsdb", { useNewUrlParser: true })
-  .then(() => console.log("MongoDB zconnected!"))
+  .then(() => console.log("MongoDB connected!"))
   .catch(err => console.log("There was an issue with the db connection" + err)); 
 
 // Serve up static assets (usually on heroku)
