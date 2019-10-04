@@ -15,12 +15,21 @@ const UserSchema = new Schema ({
     },
     email: {
         type: String,
+        unique: true,
         required: true
     },
     password: {
         type: String, 
         required: true 
     },
+    clothingItems: [
+        {
+            contentType: String,
+            image: Buffer,
+            description: String,
+            category: String
+        }
+    ],
     Date: {
         type: Date,
         default: Date.now

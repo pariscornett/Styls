@@ -2,7 +2,7 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 
 
-const db = require("../models/User");
+const User = require("../models/User");
 const keys = require("../config/keys");
 
 const options = {};
@@ -16,7 +16,7 @@ module.exports= passport => {
             User.findOne({
                 id: jwtPayload.SECRET_OR_KEY
              })
-             .then(User => {
+             .then(user => {
                 if(user) {
                     return done(null, user); //runs if successful
                 }
