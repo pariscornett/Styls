@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Login extends Component {
   constructor(props) {
@@ -15,18 +16,32 @@ class Login extends Component {
   }
 
   handleChange = (event) => {
-    console.log("handle change", event);
+    //console.log("handle change", event);
   
     const {name, value} = event.target;
 
     this.setState({
       [name]:value
     });
+
+   
 };
 
 handleSubmit = (event) => {
   console.log("form submited");
+
   event.preventDefault();
+  const newUser = {
+    email: this.state.email,
+    password: this.state.password
+  };
+
+  // logs user in through auth route
+  axios
+  .post("/api/user/login", newUser)
+  .then(response => console.log(response.data))
+  .catch(err => console.log(err.response.data )); 
+
 }
 
   render() {

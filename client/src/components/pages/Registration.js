@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import 
+import axios from "axios";
 
 class Registration extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class Registration extends Component {
     }
     
     handleChange = (event) => {
-        console.log("handle change", event);
+        //console.log("handle change", event);
       
         const {name, value} = event.target;
     
@@ -29,6 +29,21 @@ class Registration extends Component {
     handleSubmit = (event) => {
         console.log("form submited");
         event.preventDefault();
+
+        const newUser = {
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          email: this.state.email,
+          password: this.state.password,
+          password_confirmation: this.state.password_confirmation
+        }
+        
+        console.log(newUser);
+        // logs user in through auth route
+        axios
+        .post("/api/user", newUser)
+        .then(response => console.log(response.data))
+        .catch(err => console.log(err.response.data )); 
     }
     
     render() {
