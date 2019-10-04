@@ -39,9 +39,11 @@ class Registration extends Component {
         }
         
         console.log(newUser);
-        // axios.get("/api/user")
-        // .then(result => console.log(newUser))
-        // // axios.post('/URL', dataObject).then(result => ....)
+        // logs user in through auth route
+        axios
+        .post("/api/user", newUser)
+        .then(response => console.log(response.data))
+        .catch(err => console.log(err.response.data )); 
     }
     
     render() {
