@@ -71,8 +71,8 @@ class DisplayCloset extends React.Component {
     }
     render() {
         return (
-            <div className="App">              
-                <button onClick={this.getImage}>Get Image</button>
+            <div className="DisplayCloset">              
+                <button onClick={this.getImage}>Get Closet Item Image</button>
                 {this.state.img ? (
                     <img
                         style={{ height: 300 }}
