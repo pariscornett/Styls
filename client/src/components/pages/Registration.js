@@ -14,7 +14,8 @@ class Registration extends Component {
             email: '',
             password: '',
             password_confirmation: '',
-            registrationErrors: ''
+            registrationErrors: '',
+            redirect: false,
         };
     }
 
@@ -58,12 +59,21 @@ class Registration extends Component {
         axios
             .post('/api/user', newUser)
             .then(response => {
-                this.props.history.push('/login');
+                this.setState({
+                    redirect: true
+                })
+                //this.props.history.push('/login')
             })
             .catch(err => console.log(err.response.data));
     };
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to="/dashboard" />;
+        }
+
         return (
             <div className="container">
                 <div className="row">
@@ -80,7 +90,7 @@ class Registration extends Component {
                                     name="firstName"
                                     placeholder="First Name"
                                     value={this.state.firstName}
-                                    onChange={this.props.handleChange}
+                                    onChange={this.handleChange}
                                     required
                                 />
                             </div>
@@ -92,7 +102,7 @@ class Registration extends Component {
                                     name="lastName"
                                     placeholder="Last Name"
                                     value={this.state.lastName}
-                                    onChange={this.props.handleChange}
+                                    onChange={this.handleChange}
                                     required
                                 />
                             </div>
@@ -104,7 +114,7 @@ class Registration extends Component {
                                     name="email"
                                     placeholder="Email"
                                     value={this.state.email}
-                                    onChange={this.props.handleChange}
+                                    onChange={this.handleChange}
                                     required
                                 />
                             </div>
@@ -116,7 +126,7 @@ class Registration extends Component {
                                     name="password"
                                     placeholder="Password"
                                     value={this.state.password}
-                                    onChange={this.props.handleChange}
+                                    onChange={this.handleChange}
                                     required
                                 />
                             </div>
@@ -130,7 +140,7 @@ class Registration extends Component {
                                     name="password_confirmation"
                                     placeholder="Password confirmation"
                                     value={this.state.password_confirmation}
-                                    onChange={this.props.handleChange}
+                                    onChange={this.handleChange}
                                     required
                                 />
                             </div>
