@@ -14,7 +14,9 @@ class Registration extends Component {
             email: '',
             password: '',
             password_confirmation: '',
-            registrationErrors: ''
+            registrationErrors: '',
+            redirect: false,
+            errors: {}
         };
     }
 
@@ -35,10 +37,12 @@ class Registration extends Component {
 
     handleChange = event => {
         const { name, value } = event.target;
+
         this.setState({
             [name]: value
         });
     };
+
 
     handleSubmit = event => {
         event.preventDefault();
@@ -51,17 +55,41 @@ class Registration extends Component {
             password_confirmation: this.state.password_confirmation
         };
 
-        console.log(newUser);
+
         // logs user in through auth route
-        axios
+        if(newUser.password === newUser.password_confirmation) {
+            axios
             .post('/api/user', newUser)
             .then(response => {
-                this.props.history.push('/login');
+                this.setState({
+                    redirect: true
+                })
+                //this.props.history.push('/login')
             })
             .catch(err => console.log(err.response.data));
+        } else if (newUser.password != newUser.password_confirmation) {
+            let errors = {}
+            errors.password = "Check that your passwords match"
+            this.setState({
+                errors 
+            })
+        } else if(!newUser.firstName) {
+            let errors = {}
+            errors.firstName = "This field is required"
+            this.setState({
+                errors
+            })
+        }
+       
     };
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to="/dashboard" />;
+        }
+
         return (
             <div className="container">
                 <div className="row">
@@ -74,13 +102,18 @@ class Registration extends Component {
                                 <label htmlFor="firstName">First Name</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className={`form-control ${this.state.errors.firstName ? "is-invalid" : ""}`}
                                     name="firstName"
                                     placeholder="First Name"
                                     value={this.state.firstName}
                                     onChange={this.handleChange}
                                     required
                                 />
+                                {this.state.errors.firstName ? (
+                                <div className="invalid-feedback">
+                                {this.state.errors.firstName}
+                                </div>
+                            ) : ""}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="lastName">Last Name</label>
@@ -110,13 +143,18 @@ class Registration extends Component {
                                 <label htmlFor="password">Password</label>
                                 <input
                                     type="password"
-                                    className="form-control"
+                                    className={`form-control ${this.state.errors.password ? "is-invalid" : ""}`}
                                     name="password"
                                     placeholder="Password"
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                     required
                                 />
+                                {this.state.errors.password ? (
+                                <div className="invalid-feedback">
+                                {this.state.errors.password}
+                                </div>
+                            ) : ""}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password_confirmation">
@@ -124,13 +162,18 @@ class Registration extends Component {
                                 </label>
                                 <input
                                     type="password"
-                                    className="form-control"
+                                    className={`form-control ${this.state.errors.password ? "is-invalid" : ""}`}
                                     name="password_confirmation"
                                     placeholder="Password confirmation"
                                     value={this.state.password_confirmation}
                                     onChange={this.handleChange}
                                     required
                                 />
+                                {this.state.errors.password ? (
+                                <div className="invalid-feedback">
+                                {this.state.errors.password}
+                                </div>
+                            ) : ""}
                             </div>
 
                             <button

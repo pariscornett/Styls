@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navbar(props) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="navbar-brand">Styls</div>
@@ -23,11 +23,19 @@ function Navbar() {
                             Home
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {
+                        props.isLoggedIn ? "" : (   <li className="nav-item">
                         <Link className="nav-link" to="/login">
                             Login
+
+                        </Link>  </li>)
+                    }
+                 
+
+
                         </Link>
                     </li>
+
                     <li className="nav-item">
                         <Link className="nav-link" to="../pages/dashboard">
                             Dashboard

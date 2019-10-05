@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import CreateCloset from './components/layouts/CreateCloset';
@@ -12,11 +13,31 @@ import PrivateRoute from './components/utils/PrivateRoute';
 import NoMatch from './components/pages/NoMatch';
 
 class App extends React.Component {
+
+    state = {
+        user: {},
+        isLoggedIn: false
+    }
+    
+    addUserLogin = () => {
+        console.log("CheckUserLogin ran");
+        this.setState({
+            isLoggedIn: true
+        });
+    }
+
+    removeUserLogin = () => {
+        this.setState({
+            user: {}, 
+            isLoggedIn: false
+        })
+    }
+
     render() {
         return (
             <div className="App">
                 <Router>
-                    <Navbar />
+                    <Navbar isLoggedIn = {this.state.isLoggedIn} />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route
@@ -25,7 +46,7 @@ class App extends React.Component {
                             component={Registration}
                         />
 
-                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/login" component={ () => <Login addUserLogin = {this.addUserLogin}  />} />
                         <Route
                             exact
                             path="/createcloset"
@@ -34,7 +55,7 @@ class App extends React.Component {
                         <PrivateRoute
                             exact
                             path="/dashboard"
-                            component={Dashboard}
+                            component={() => <Dashboard removeUserLogin = {this.removeUserLogin} />}
                         />
                         <Route component={NoMatch} />
                     </Switch>

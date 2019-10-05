@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
+import axios from "axios";
 import CreateCloset from '../layouts/CreateCloset';
 import DisplayCloset from '../layouts/DisplayCloset';
 
+
 class Dashboard extends Component {
+    
     state = {
         redirect: false,
-        user: {}
+        test: true,
+        user: {},
+       
     };
 
     componentDidMount() {
@@ -17,23 +22,16 @@ class Dashboard extends Component {
         if (token) {
             setAuthToken(token);
         }
-
-        // axios
-        //     .get('/api/user')
-        //     .then(response => {
-        //         this.setState({
-        //             user: response.data
-        //         });
-        //     })
-        //     .catch(err => console.log(err.response));
     }
 
     handleLogout = () => {
         localStorage.removeItem('styls');
+        this.props.removeUserLogin()
         this.setState({
             redirect: true
         });
     };
+
 
     render() {
         const { redirect, user } = this.state;

@@ -5,8 +5,8 @@ import setAuthToken from '../utils/setAuthToken';
 import axios from 'axios';
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             redirect: false,
             email: '',
@@ -41,6 +41,7 @@ class Login extends Component {
 
                     localStorage.setItem('styls', token);
                     setAuthToken(token);
+                    this.props.addUserLogin();
                     this.setState({
                         redirect: true,
                         errors: {}
@@ -65,6 +66,7 @@ class Login extends Component {
             [name]: value
         });
     };
+
 
     render() {
         const { redirect } = this.state;
