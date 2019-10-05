@@ -105,7 +105,7 @@ module.exports = function (app) {
               }
             })
            
-    })
+    }).catch(err => console.log(err))
   })
 // app.get("/api/user/current/", passport.authenticate("jwt",{session:false}),(req,res) =>{
 //   User.findById(req.user.id, (err,user) => {
@@ -132,6 +132,8 @@ var upload = multer({ storage: storage });
 
 // upload route
 app.post('/upload', passport.authenticate("jwt",{session:false}), upload.single('recfile'), (req, res) => {
+
+  console.log(err.field);
   // get the file path
   var img = fs.readFileSync(req.file.path);
 
@@ -155,6 +157,7 @@ User.update({
 
 }) .then(file => {
   res.json({ msg: 'File successfully uploaded' });
+
 })
 .catch(err => console.log(err));
 

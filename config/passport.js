@@ -16,8 +16,8 @@ module.exports= passport => {
             User.findOne({
                 id: jwtPayload.SECRET_OR_KEY
              })
-             .then(User => {
-                if(User) {
+             .then(user => {
+                if(user) {
                     return done(null, user); //runs if successful
                 }
                 return done(null, false); //runs if unsuccessful
