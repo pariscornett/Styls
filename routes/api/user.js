@@ -81,7 +81,7 @@ module.exports = function (app) {
                 // })
                 //create the payload
                 const payload = {
-                  _id: user.ObjectId,
+                  id: user._id,
                   email: user.email,
                   firstName: user.firstName,
                   lastName: user.lastName
@@ -150,10 +150,10 @@ app.post('/upload', passport.authenticate("jwt",{session:false}), upload.single(
   };
 
   // create a new photo item in the db (need to change this to add to user)
-  console.log(req.user);
+  console.log(req.user.firstName);
   console.log(req.user._id);
 User.update({
-  _id:req.user.id},
+  _id:req.user._id},
   {$push:{clothingItems:newItem}
 
 }) .then(file => {
