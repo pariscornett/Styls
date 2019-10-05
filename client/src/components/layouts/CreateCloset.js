@@ -41,11 +41,11 @@ class CreateCloset extends React.Component{
     render(){
 
         return (
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 offset-lg-1">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-5 offset-lg-1">
                         <div className="form-group">
-                            <label for="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
+                            <label htmlFor="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
                             <br />
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" name="recfile" onChange={this.onChangeHandler}/>
                             <br />
@@ -53,7 +53,7 @@ class CreateCloset extends React.Component{
                             <br />
                             <input placeholder="category..." type="text" className="form-control-file" id="exampleFormControlFile1" name="category" onChange={this.onChange}/>
                             <br />
-                            <button className="btn btn-primary" onClick={this.onClickHandler}>submit</button>
+                            <button className="btn btn-primary" onClick={this.onClickHandler}>Submit</button>
                         </div>
                     </div>
                 </div>
