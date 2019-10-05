@@ -31,8 +31,10 @@ const db = require("./config/keys").SECRET_OR_KEY;
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/stylsdb", { useNewUrlParser: true })
+
+mongoose.connect("mongodb://stylsTest:password1@ds229088.mlab.com:29088/heroku_3cclhw95", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected!"))
+
   .catch(err => console.log("There was an issue with the db connection" + err)); 
 
 // Serve up static assets (usually on heroku)

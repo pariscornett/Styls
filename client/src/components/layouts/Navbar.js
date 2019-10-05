@@ -27,24 +27,19 @@ function Navbar(props) {
                         props.isLoggedIn ? "" : (   <li className="nav-item">
                         <Link className="nav-link" to="/login">
                             Login
+
                         </Link>  </li>)
                     }
                  
 
-                    <li className="nav-item">
-                        {/* <Link className="nav-link" to="../pages/CreateCloset">
-                  Create Closet
-                </Link> */}
+
+                        </Link>
                     </li>
+
                     <li className="nav-item">
-                        {/* <Link className="nav-link" to="../pages/Dashboard">
-                  Dashboard
-                </Link> */}
-                    </li>
-                    <li className="nav-item">
-                        {/* <Link className="nav-link" to="../pages/Home">
-                  Home
-                </Link> */}
+                        <Link className="nav-link" to="../pages/dashboard">
+                            Dashboard
+                        </Link>
                     </li>
                     <li className="nav-item">
                         {/* <Link className="nav-link" to="../pages/Settings">
