@@ -51,6 +51,7 @@ class DisplayCloset extends React.Component {
     //         })
     //         .catch(err => console.log(err.response));
     // };
+    
     getImage = () => {
         const id = '5d98db51e58a744a385c8b53';
         axios.get(`/photo/${id}`).then(data => {
