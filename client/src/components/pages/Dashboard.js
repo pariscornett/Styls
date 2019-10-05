@@ -50,16 +50,16 @@ class Dashboard extends Component {
                 </button>
                 <CreateCloset />
                 <hr />
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-10 offset-lg-1">
                             <h2>Check out items in your Closet:</h2>
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-10 offset-lg-1">
                             <DisplayCloset />
                         </div>
                     </div>
