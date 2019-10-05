@@ -30,11 +30,6 @@ function Navbar(props) {
 
                         </Link>  </li>)
                     }
-                 
-
-
-                        </Link>
-                    </li>
 
                     <li className="nav-item">
                         <Link className="nav-link" to="../pages/dashboard">
