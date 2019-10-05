@@ -41,9 +41,9 @@ class CreateCloset extends React.Component{
     render(){
 
         return (
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 offset-lg-1">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-5 offset-lg-1">
                         <div className="form-group">
                             <label htmlFor="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
                             <br />
