@@ -52,7 +52,7 @@ class App extends React.Component {
             .catch(err => console.log(err.response));
     };
     getImage = () => {
-        const id = '5d929036cd57714cd74df882';
+        const id = '5d98db51e58a744a385c8b53';
         axios.get(`/photo/${id}`).then(data => {
             console.log(data.data);
             const base64Flag = 'data:image/jpeg;base64,';
