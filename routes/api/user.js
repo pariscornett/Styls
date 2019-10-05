@@ -148,7 +148,8 @@ app.post('/upload', passport.authenticate("jwt",{session:false}), upload.single(
   };
 
   // create a new photo item in the db (need to change this to add to user)
-
+  console.log(req.user);
+  console.log(req.user._id);
 User.update({
   _id:req.user.id},
   {$push:{clothingItems:newItem}
