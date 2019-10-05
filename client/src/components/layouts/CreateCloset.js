@@ -45,7 +45,7 @@ class CreateCloset extends React.Component{
                 <div class="row">
                     <div class="col-lg-5 offset-lg-1">
                         <div className="form-group">
-                            <label for="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
+                            <label htmlFor="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
                             <br />
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" name="recfile" onChange={this.onChangeHandler}/>
                             <br />
