@@ -14,10 +14,10 @@ module.exports= passport => {
     passport.use(
         new JwtStrategy(options, (jwtPayload, done) => {
             User.findOne({
-                id: jwtPayload.SECRET_OR_KEY
+                id: jwtPayload._id
              })
-             .then(User => {
-                if(User) {
+             .then(user => {
+                if(user) {
                     return done(null, user); //runs if successful
                 }
                 return done(null, false); //runs if unsuccessful

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
-import CreateCloset from './components/CreateCloset';
+import CreateCloset from './components/layouts/CreateCloset';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
 import Registration from './components/pages/Registration';

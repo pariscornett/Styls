@@ -28,21 +28,10 @@ function Navbar() {
                             Login
                         </Link>
                     </li>
-
                     <li className="nav-item">
-                        {/* <Link className="nav-link" to="../pages/CreateCloset">
-                  Create Closet
-                </Link> */}
-                    </li>
-                    <li className="nav-item">
-                        {/* <Link className="nav-link" to="../pages/Dashboard">
-                  Dashboard
-                </Link> */}
-                    </li>
-                    <li className="nav-item">
-                        {/* <Link className="nav-link" to="../pages/Home">
-                  Home
-                </Link> */}
+                        <Link className="nav-link" to="../pages/dashboard">
+                            Dashboard
+                        </Link>
                     </li>
                     <li className="nav-item">
                         {/* <Link className="nav-link" to="../pages/Settings">
