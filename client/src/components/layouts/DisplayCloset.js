@@ -30,27 +30,28 @@
 //Alec's code
 import React from 'react';
 import axios from 'axios';
-class App extends React.Component {
+
+class DisplayCloset extends React.Component {
     state = {
         img: '',
         selectedFile: null
     };
-    onChangeHandler = event => {
-        this.setState({
-            selectedFile: event.target.files[0],
-            loaded: 0
-        });
-    };
-    onClickHandler = () => {
-        const data = new FormData();
-        data.append('recfile', this.state.selectedFile);
-        axios
-            .post('/upload', data)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(err => console.log(err.response));
-    };
+    // onChangeHandler = event => {
+    //     this.setState({
+    //         selectedFile: event.target.files[0],
+    //         loaded: 0
+    //     });
+    // };
+    // onClickHandler = () => {
+    //     const data = new FormData();
+    //     data.append('recfile', this.state.selectedFile);
+    //     axios
+    //         .post('/upload', data)
+    //         .then(response => {
+    //             console.log(response);
+    //         })
+    //         .catch(err => console.log(err.response));
+    // };
     getImage = () => {
         const id = '5d98db51e58a744a385c8b53';
         axios.get(`/photo/${id}`).then(data => {
@@ -85,4 +86,4 @@ class App extends React.Component {
         );
     }
 }
-export default App;
+export default DisplayCloset;

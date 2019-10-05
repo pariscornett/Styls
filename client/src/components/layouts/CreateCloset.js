@@ -53,7 +53,7 @@ class CreateCloset extends React.Component{
                             <br />
                             <input placeholder="category..." type="text" className="form-control-file" id="exampleFormControlFile1" name="category" onChange={this.onChange}/>
                             <br />
-                            <button className="btn btn-primary" onClick={this.onClickHandler}>submit</button>
+                            <button className="btn btn-primary" onClick={this.onClickHandler}>Submit</button>
                         </div>
                     </div>
                 </div>
