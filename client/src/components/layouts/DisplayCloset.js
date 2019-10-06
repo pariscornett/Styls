@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Top from './Top';
 
 class DisplayCloset extends React.Component {
     state = {
@@ -48,6 +49,7 @@ class DisplayCloset extends React.Component {
                             />
                         </div>
                     ))}
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr}/>
             </div>
         );
     }
