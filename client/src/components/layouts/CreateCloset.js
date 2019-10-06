@@ -56,6 +56,7 @@ class CreateCloset extends React.Component{
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlSelect1" name="category">Category select</label>
                                 <select className="form-control-file" id="exampleFormControlSelect1" name="category" onChange = {this.onChange}>
+                                <option className="page-item-disabled"></option>
                                 <option name="top">Top</option>
                                 <option name="bottom">Bottom</option>
                                 <option name="one-piece">One Piece</option>
