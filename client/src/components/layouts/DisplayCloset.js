@@ -60,8 +60,8 @@ class DisplayCloset extends React.Component {
                                 src={this.makeImageStr(item.image)}
                             />
                         </div>
-                    ))}
-                    <button className="btn btn-primary" onClick={this.onClickHandler}>Remove Item</button>
+                        <button className="btn btn-primary" onClick={this.onClickHandler}>Remove Item</button>
+                    ))}   
             </div>
         );
     }

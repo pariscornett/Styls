@@ -160,10 +160,10 @@ module.exports = function(app) {
                 .catch(err => console.log(err));
         }
     );
-    app.remove(
+    app.delete(
         '/remove',
         passport.authenticate('jwt', { session: false }),
-        upload.single('recfile'),
+        remove.single('recfile'),
         (req, res) => {
             var img = fs.readFileSync(req.file.path);
             User.update(
