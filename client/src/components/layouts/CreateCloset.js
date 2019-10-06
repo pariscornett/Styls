@@ -30,8 +30,9 @@ class CreateCloset extends React.Component{
         data.append('recfile', this.state.selectedFile);
         data.append('description', this.state.description);
         data.append('category', this.state.category);
+        console.log(data);
         axios
-            .post('/upload', data)
+            .post('upload', data)
             .then(response => {
                 console.log(response);
             })
@@ -54,13 +55,13 @@ class CreateCloset extends React.Component{
                             {/* <input placeholder="category..." type="text" className="form-control-file" id="exampleFormControlFile1" name="category" onChange={this.onChange}/> */}
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlSelect1" name="category">Category select</label>
-                                <select className="form-control-file" id="exampleFormControlSelect1" name="category">
-                                <option value="top">Top</option>
-                                <option value="bottom">Bottom</option>
-                                <option value="one-piece">One Piece</option>
-                                <option value="footwear">Footwear</option>
-                                <option value="outerwear">Outerwear</option>
-                                <option value="accessory">Accessory</option>
+                                <select className="form-control-file" id="exampleFormControlSelect1" name="category" onChange = {this.onChange}>
+                                <option name="top">Top</option>
+                                <option name="bottom">Bottom</option>
+                                <option name="one-piece">One Piece</option>
+                                <option name="footwear">Footwear</option>
+                                <option name="outerwear">Outerwear</option>
+                                <option name="accessory">Accessory</option>
                                 </select>
                             </div>
                             <br />

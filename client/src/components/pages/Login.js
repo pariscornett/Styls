@@ -11,7 +11,7 @@ class Login extends Component {
             redirect: false,
             email: '',
             password: '',
-            error: {}
+            errors: {}
         };
     }
 
@@ -55,6 +55,7 @@ class Login extends Component {
             });
     };
 
+
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
     }
@@ -87,14 +88,19 @@ class Login extends Component {
                                 <div className="form-group">
                                     <label htmlFor="email">Email address</label>
                                     <input
-                                        className="form-control"
                                         type="email"
+                                        className={`form-control ${this.state.errors.email ? "is-invalid" : ""}`}
                                         name="email"
                                         placeholder="Email"
                                         value={this.state.email}
                                         onChange={this.handleChange}
                                         required
                                     />
+                                      {this.state.errors.email ? (
+                                            <div className="invalid-feedback">
+                                            {this.state.errors.email}
+                                            </div>
+                                        ) : ""}
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password">Password</label>
