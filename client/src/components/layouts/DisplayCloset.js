@@ -29,13 +29,26 @@ class DisplayCloset extends React.Component {
         return base64Flag + imageStr;
     };
 
+    onClickHandler = () => {
+        const data = new FormData();
+        // data.remove('recfile', this.state.selectedFile);
+        // data.remove('description', this.state.description);
+        // data.remove('category', this.state.category);
+        axios
+            .remove('/remove', data)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => console.log(err.response));
+    };
+
     render() {
         const { clothingItems } = this.state.user;
 
         return (
             <div className="DisplayCloset">
-                {clothingItems &&
-                        clothingItems.map(item => (
+                {this.state.user.clothingItems &&
+                    this.state.user.clothingItems.map(item => (
                         <div>
                             <p>Category: {item.category}</p>
                             <p>Description: {item.description}</p>
@@ -46,8 +59,10 @@ class DisplayCloset extends React.Component {
                                 alt="clothing item"
                                 src={this.makeImageStr(item.image)}
                             />
+                            <button className="btn btn-primary" onClick={this.onClickHandler}>Remove Item</button>
                         </div>
-                    ))}
+                        
+                    ))}   
             </div>
         );
     }
