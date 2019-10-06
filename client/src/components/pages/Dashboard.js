@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
-import axios from "axios";
 import CreateCloset from '../layouts/CreateCloset';
 import DisplayCloset from '../layouts/DisplayCloset';
 
@@ -34,7 +32,7 @@ class Dashboard extends Component {
 
 
     render() {
-        const { redirect, user } = this.state;
+        const { redirect } = this.state;
 
         if (redirect) {
             return <Redirect to="/" />;

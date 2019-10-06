@@ -44,7 +44,7 @@ class CreateCloset extends React.Component{
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5 offset-lg-1">
-                        <div className="form-group">
+                        <form className="form-group">
                             <label htmlFor="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
                             <br />
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" name="recfile" onChange={this.onChangeHandler}/>
@@ -53,19 +53,19 @@ class CreateCloset extends React.Component{
                             <br />
                             {/* <input placeholder="category..." type="text" className="form-control-file" id="exampleFormControlFile1" name="category" onChange={this.onChange}/> */}
                             <div className="form-group">
-                                <label htmlFor="exampleFormControlSelect1">Example select</label>
-                                <select className="form-control" id="exampleFormControlSelect1">
-                                <option>Top</option>
-                                <option>Bottom</option>
-                                <option>One Piece</option>
-                                <option>Footwear</option>
-                                <option>Outerwear</option>
-                                <option>Accessory</option>
+                                <label htmlFor="exampleFormControlSelect1" name="category">Category select</label>
+                                <select className="form-control-file" id="exampleFormControlSelect1" name="category">
+                                <option value="top">Top</option>
+                                <option value="bottom">Bottom</option>
+                                <option value="one-piece">One Piece</option>
+                                <option value="footwear">Footwear</option>
+                                <option value="outerwear">Outerwear</option>
+                                <option value="accessory">Accessory</option>
                                 </select>
                             </div>
                             <br />
                             <button className="btn btn-primary" onClick={this.onClickHandler}>Submit</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

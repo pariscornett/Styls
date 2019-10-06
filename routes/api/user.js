@@ -136,7 +136,7 @@ module.exports = function(app) {
             // encode the image
             var encode_image = img.toString('base64');
 
-            console.log(req.body);
+            //console.log(req.body);
             // Ddfine a JSON for the image attributes for saving to database
             var newItem = {
                 category: req.body.category,
@@ -144,9 +144,10 @@ module.exports = function(app) {
                 contentType: req.file.mimetype,
                 image: new Buffer(encode_image, 'base64')
             };
-
+          
             // create a new photo item in the db (need to change this to add to user)
             console.log(req.user.firstName);
+            console.log(req.body);
             console.log(req.user._id);
             User.update(
                 {

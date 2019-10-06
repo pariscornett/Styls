@@ -67,7 +67,7 @@ class Registration extends Component {
                 //this.props.history.push('/login')
             })
             .catch(err => console.log(err.response.data));
-        } else if (newUser.password != newUser.password_confirmation) {
+        } else if (newUser.password !== newUser.password_confirmation) {
             let errors = {}
             errors.password = "Check that your passwords match"
             this.setState({
