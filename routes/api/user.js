@@ -160,4 +160,22 @@ module.exports = function(app) {
                 .catch(err => console.log(err));
         }
     );
+    app.remove(
+        '/remove',
+        passport.authenticate('jwt', { session: false }),
+        upload.single('recfile'),
+        (req, res) => {
+            var img = fs.readFileSync(req.file.path);
+            User.update(
+                {
+                    _id: req.user._id
+                },
+                { $splice: { clothingItems: newItem } }
+            )
+                .then(file => {
+                    res.json({ msg: 'File successfully deleted' });
+                })
+                .catch(err => console.log(err));
+        }
+    );
 };
