@@ -32,7 +32,7 @@ function Navbar(props) {
                     }
 
                     <li className="nav-item">
-                        <Link className="nav-link" to="../pages/dashboard">
+                        <Link className="nav-link" to="../dashboard">
                             Dashboard
                         </Link>
                     </li>

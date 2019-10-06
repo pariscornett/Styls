@@ -12,7 +12,7 @@ const app = express();
 app.use(logger("dev"));
 
 // Express middleware
-app.use(express.urlencoded({ extended: false })); // Bodyparser
+app.use(express.urlencoded({ extended: true })); // Bodyparser
 app.use(express.json());
 
 // Passport middleware

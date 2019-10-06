@@ -34,8 +34,8 @@ class DisplayCloset extends React.Component {
 
         return (
             <div className="DisplayCloset">
-                {this.state.user.clothingItems &&
-                    this.state.user.clothingItems.map(item => (
+                {clothingItems &&
+                        clothingItems.map(item => (
                         <div>
                             <p>Category: {item.category}</p>
                             <p>Description: {item.description}</p>

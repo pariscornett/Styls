@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import CreateCloset from './components/layouts/CreateCloset';
