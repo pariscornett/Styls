@@ -51,7 +51,18 @@ class CreateCloset extends React.Component{
                             <br />
                             <input placeholder="description..." type="text" className="form-control-file" id="exampleFormControlFile1" name="description" onChange={this.onChange}/>
                             <br />
-                            <input placeholder="category..." type="text" className="form-control-file" id="exampleFormControlFile1" name="category" onChange={this.onChange}/>
+                            {/* <input placeholder="category..." type="text" className="form-control-file" id="exampleFormControlFile1" name="category" onChange={this.onChange}/> */}
+                            <div className="form-group">
+                                <label htmlFor="exampleFormControlSelect1">Example select</label>
+                                <select className="form-control" id="exampleFormControlSelect1">
+                                <option>Top</option>
+                                <option>Bottom</option>
+                                <option>One Piece</option>
+                                <option>Footwear</option>
+                                <option>Outerwear</option>
+                                <option>Accessory</option>
+                                </select>
+                            </div>
                             <br />
                             <button className="btn btn-primary" onClick={this.onClickHandler}>Submit</button>
                         </div>
