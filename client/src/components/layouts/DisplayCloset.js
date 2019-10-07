@@ -30,6 +30,8 @@ class DisplayCloset extends React.Component {
         return base64Flag + imageStr;
     };
 
+
+
     render() {
         const { clothingItems } = this.state.user;
 
@@ -49,7 +51,12 @@ class DisplayCloset extends React.Component {
                             />
                         </div>
                     ))}
-                      <Top user={this.state.user} makeImageStr={this.makeImageStr}/>
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr} type="Top"/>
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr} type="Bottom"/>
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr} type="One Piece"/>
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr} type="Footwear"/>
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr} type="Outerwear"/>
+                      <Top user={this.state.user} makeImageStr={this.makeImageStr} type="Accessory"/>
             </div>
         );
     }

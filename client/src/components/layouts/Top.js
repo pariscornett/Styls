@@ -12,11 +12,11 @@ function Top(props) {
     return (
         <div>
             <br/><br/>
-            <h1>Top</h1>
 
              {props.user.clothingItems &&
-                    props.user.clothingItems.map(item => (
+                    props.user.clothingItems.filter(item => (item.category==props.type)).map(item => (
                         <div>
+                            <h1>Type: {item.category}</h1>
                             <p>Category: {item.category}</p>
                             <p>Description: {item.description}</p>
                             {/* load image here */}
