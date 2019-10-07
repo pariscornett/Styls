@@ -12,10 +12,10 @@ function Top(props) {
     return (
         <div>
             <br/><br/>
-            <h1>Top</h1>
+            <h1>This starts the "Top" Componenet</h1>
 
              {props.user.clothingItems &&
-                    props.user.clothingItems.map(item => (
+                    props.user.clothingItems.map(item => ( 
                         <div>
                             <p>Category: {item.category}</p>
                             <p>Description: {item.description}</p>

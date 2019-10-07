@@ -30,6 +30,12 @@ class DisplayCloset extends React.Component {
         return base64Flag + imageStr;
     };
 
+    forTops = (user) => {
+        if (this.state.user.clothingItems.category == "Top"){
+            user=this.state.user;
+        }
+    }
+
     render() {
         const { clothingItems } = this.state.user;
 
@@ -49,7 +55,7 @@ class DisplayCloset extends React.Component {
                             />
                         </div>
                     ))}
-                      <Top user={this.state.user} makeImageStr={this.makeImageStr}/>
+                      <Top user={this.forTops()} makeImageStr={this.makeImageStr}/>
             </div>
         );
     }
