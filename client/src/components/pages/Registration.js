@@ -3,6 +3,15 @@ import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import setAuthToken from '../utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
+import { headShake } from "react-animations";
+import { StyleSheet, css } from "aphrodite";
+
+const styles = StyleSheet.create({
+    mismatch: {
+        animationName: headShake,
+        animationDuration: "1s"
+    }
+})
 
 class Registration extends Component {
     constructor(props) {
@@ -143,7 +152,7 @@ class Registration extends Component {
                                 <label htmlFor="password">Password</label>
                                 <input
                                     type="password"
-                                    className={`form-control ${this.state.errors.password ? "is-invalid" : ""}`}
+                                    className={`form-control ${this.state.errors.password ? `${css(styles.mismatch)} is-invalid` : ""}`}
                                     name="password"
                                     placeholder="Password"
                                     value={this.state.password}
@@ -162,7 +171,7 @@ class Registration extends Component {
                                 </label>
                                 <input
                                     type="password"
-                                    className={`form-control ${this.state.errors.password ? "is-invalid" : ""}`}
+                                    className={`form-control ${this.state.errors.password ? `${css(styles.mismatch)} is-invalid` : ""}`}
                                     name="password_confirmation"
                                     placeholder="Password confirmation"
                                     value={this.state.password_confirmation}
