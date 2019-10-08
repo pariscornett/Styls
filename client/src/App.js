@@ -47,7 +47,8 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Router>
-                    <Navbar isLoggedIn={this.state.isLoggedIn} />
+                    <Navbar isLoggedIn={this.state.isLoggedIn}
+                            removeUserLogin={this.removeUserLogin} />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route

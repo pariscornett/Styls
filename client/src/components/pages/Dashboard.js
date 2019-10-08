@@ -8,7 +8,6 @@ import DisplayCloset from '../layouts/DisplayCloset';
 class Dashboard extends Component {
     
     state = {
-        redirect: false,
         test: true,
         user: {},
        
@@ -22,28 +21,12 @@ class Dashboard extends Component {
         }
     }
 
-    handleLogout = () => {
-        localStorage.removeItem('styls');
-        this.props.removeUserLogin()
-        this.setState({
-            redirect: true
-        });
-    };
-
-
     render() {
-        const { redirect } = this.state;
-
-        if (redirect) {
-            return <Redirect to="/" />;
-        }
+      
 
         return (
             <div>
                 <h1> Dashboard</h1>
-                <button className="btn btn-primary" onClick={this.handleLogout}>
-                    Logout
-                </button>
                 <CreateCloset />
                 <hr />
                 <div className="container">
