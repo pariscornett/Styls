@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
+const styles = {
+    navigation: {
+        backgroundColor: "#bcd2d9"
+    },
+    links: {
+        color: "#c6a52f"
+    }
+}
+
 class Navbar extends Component {
     state = {
         redirect: false,
         user: {}
     };
 
+    // "navbar navbar-expand-lg navbar-light bg-light"
+    // {`navbar navbar-expand-lg navbar-light bg-light ${css(styles.navigation)}}`}
 
     handleLogout = () => {
         localStorage.removeItem('styls');
@@ -14,8 +26,8 @@ class Navbar extends Component {
     };
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="navbar-brand">Styls</div>
+            <nav className="navbar navbar-expand-lg navbar-light" style={styles.navigation}>
+                <div className="navbar-brand">STYLS</div>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -30,20 +42,20 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">
+                            <Link className="nav-link" to="/" style={styles.links}>
                                 Home
                             </Link>
                         </li>
                         {
-                            this.props.isLoggedIn ? ( <li className="nav-item" onClick={this.handleLogout}> <Link className="nav-link" to="/" >Logout</Link></li>) : (   <li className="nav-item">
-                            <Link className="nav-link" to="/login">
+                            this.props.isLoggedIn ? ( <li className="nav-item" onClick={this.handleLogout}> <Link className="nav-link" to="/" style={styles.links} >Logout</Link></li>) : (   <li className="nav-item">
+                            <Link className="nav-link" to="/login" style={styles.links}>
                                 Login
     
                             </Link>  </li>)
                         }
     
                         <li className="nav-item">
-                            <Link className="nav-link" to="../dashboard">
+                            <Link className="nav-link" to="../dashboard" style={styles.links}>
                                 Dashboard
                             </Link>
                         </li>

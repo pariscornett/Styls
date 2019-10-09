@@ -4,7 +4,7 @@ export class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Styls</h1> 
+                <img src="./assets/images/STYLS.png" />
             </div>
         )
     }

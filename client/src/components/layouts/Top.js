@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Top(props) {
 
@@ -11,14 +10,15 @@ function Top(props) {
 
     return (
         <div>
+            <h1>{props.type}</h1>
             <br/><br/>
-
+           
              {props.user.clothingItems &&
-                    props.user.clothingItems.filter(item => (item.category==props.type)).map(item => (
+                    props.user.clothingItems.filter(item => (item.category===props.type)).map(item => (
                         <div>
-                            <h1>Type: {item.category}</h1>
+                            {/* <h1>Type: {item.category}</h1>
                             <p>Category: {item.category}</p>
-                            <p>Description: {item.description}</p>
+                            <p>Description: {item.description}</p> */}
                             {/* load image here */}
 
                             <img
@@ -30,7 +30,6 @@ function Top(props) {
                         
                 ))}
         </div>
-
 
     );
 }

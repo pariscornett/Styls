@@ -12,6 +12,13 @@ import PrivateRoute from './components/utils/PrivateRoute';
 import NoMatch from './components/pages/NoMatch';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from './components/utils/setAuthToken';
+import DisplayCloset from './components/layouts/DisplayCloset';
+
+const styles = {
+    app: {
+        backgroundColor: "#bcd2d9"
+    }
+}
 
 // Persistent Login
 if (localStorage.styls) {
@@ -23,6 +30,8 @@ if (localStorage.styls) {
     if (decoded.exp < currentTime) {
     }
 }
+
+
 
 class App extends React.Component {
     state = {
@@ -45,7 +54,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" style={styles.app}>
                 <Router>
                     <Navbar isLoggedIn={this.state.isLoggedIn}
                             removeUserLogin={this.removeUserLogin} />
@@ -69,12 +78,16 @@ class App extends React.Component {
                             path="/createcloset"
                             component={CreateCloset}
                         />
+                         <Route
+                            exact
+                            path="/viewcloset"
+                            component={DisplayCloset}
+                        />
                         <PrivateRoute
                             exact
                             path="/dashboard"
                             component={() => (
                                 <Dashboard
-                                    removeUserLogin={this.removeUserLogin}
                                 />
                             )}
                         />
