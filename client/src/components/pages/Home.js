@@ -16,7 +16,7 @@ class Home extends Component {
         return (
             <Container>
                 <Row>
-                    <img src="./assets/images/STYLS.png" style={styles.logo} />
+                    <img src="./assets/images/styls.png" style={styles.logo} />
                 </Row>
             </Container>
           

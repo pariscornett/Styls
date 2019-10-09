@@ -92,7 +92,7 @@ class Dashboard extends Component {
             <Container>
                 <Row>
                     <Col md={12}>
-                        <img src="./assets/images/STYLS.png" style={styles.logo} />
+                        <img src="./assets/images/styls.png" style={styles.logo} />
                     </Col>
                 </Row>
                 <Row>

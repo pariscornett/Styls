@@ -86,7 +86,7 @@ class DisplayCloset extends React.Component {
             <div>
             <Container>
                 <Row>
-                    <img src="./assets/images/STYLS.png" style={styles.logo} />
+                    <img src="./assets/images/styls.png" style={styles.logo} />
                 </Row>
                 <Row className="justify-content-md-center">
                     <Col md={12}>
