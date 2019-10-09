@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import setAuthToken from '../utils/setAuthToken';
-import { Redirect, Link} from 'react-router-dom';
-import CreateCloset from '../layouts/CreateCloset';
-import DisplayCloset from '../layouts/DisplayCloset';
+import { Redirect} from 'react-router-dom';
 import { relative } from 'path';
 
 const styles = {
-    dashOptions: {
-        position: "relative",
-        left: "400px",
+    dashOptionAdd: {
+        position: "fixed",
+        height: "500px",
+        border: "5px solid black",
+        left: "300px",
         display: "inline",
         padding: 10,
         margin: 20,
-        width: "500px",
+        backgroundColor: "#bcd2d9"
+    },
+    dashOptionView: {
+        position: "fixed",
         height: "500px",
+        border: "5px solid black",
+        left: "800px",
+        display: "inline",
+        padding: 10,
+        margin: 20,
         backgroundColor: "#bcd2d9"
     },
     add: {
@@ -66,37 +74,19 @@ class Dashboard extends Component {
         }
 
         return (
-            <div>
-                <h1>What would you like to do?</h1>
+            <div className="container" style={styles.container}>
                 <div
                 className="dashOptions"
-                style={styles.dashOptions}
+                style={styles.dashOptionAdd}
                 onClick={this.handleAddClosetClick}>Add to closet
                 <img src="./assets/images/add.png" style={styles.add}/>
                 </div>
                 <div
                 className="dashOptions"
-                style={styles.dashOptions}
+                style={styles.dashOptionView}
                 onClick={this.handleViewClosetClick}>View Closet
                 <img src="./assets/images/magnifying-glass.png" />
-                </div>
-                {/* <CreateCloset />
-                <hr />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-10 offset-lg-1">
-                            <h2>Check out items in your Closet:</h2>
-                        </div>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-10 offset-lg-1">
-                            <DisplayCloset />
-                        </div>
-                    </div>
-                </div> */}
-                
+                </div>      
             </div>
         );
     }

@@ -2,6 +2,9 @@ import React from 'react';
 
 const styles = {
   footer: {
+    position: "fixed",
+    top: "720px",
+    width: 1500,
     backgroundColor: "#bcd2d9",
     color: "#c6a52f"
   }

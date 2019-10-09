@@ -13,12 +13,7 @@ import NoMatch from './components/pages/NoMatch';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from './components/utils/setAuthToken';
 import DisplayCloset from './components/layouts/DisplayCloset';
-
-const styles = {
-    app: {
-        backgroundColor: "#bcd2d9"
-    }
-}
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Persistent Login
 if (localStorage.styls) {
@@ -54,7 +49,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App" style={styles.app}>
+            <div className="App">
                 <Router>
                     <Navbar isLoggedIn={this.state.isLoggedIn}
                             removeUserLogin={this.removeUserLogin} />
