@@ -1,7 +1,29 @@
 //Add items to your closet/create new closet
 import React from 'react';
 import axios from 'axios';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
+const styles = {
+    logo : {
+        position: "relative",
+        left: "270px",
+        top: "-150px"
+    },
+    form: {
+        position:"relative",
+        top: "-250px",
+        textAlign: "center",
+        color:"#c6a52f",
+        left: "-30px"
+    },
+    submitButton: {
+        backgroundColor: "#bcd2d9",
+        border: "1px solid #c6a52f",
+        color: "black"
+    }
+}
 
 class CreateCloset extends React.Component{
     state= {
@@ -42,10 +64,13 @@ class CreateCloset extends React.Component{
     render(){
 
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-5 offset-lg-1">
-                        <form className="form-group">
+            <Container>
+            <Row>
+                <img src="./assets/images/STYLS.png" style={styles.logo} />
+            </Row>
+            <Row>
+                <Col md={{span:6, offset:3}}>
+                        <form className="form-group" style={styles.form}>
                             <label htmlFor="exampleFormControlFile1"><h2>Upload an item to your Closet:</h2></label>
                             <br />
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" name="recfile" onChange={this.onChangeHandler}/>
@@ -66,11 +91,15 @@ class CreateCloset extends React.Component{
                                 </select>
                             </div>
                             <br />
-                            <button className="btn btn-primary" onClick={this.onClickHandler}>Submit</button>
+                            <button className="btn btn-primary" 
+                            onClick={this.onClickHandler}
+                            style={styles.submitButton}
+                            >Submit</button>
                         </form>
-                    </div>
-                </div>
-            </div>
+                </Col>
+            </Row>
+        </Container>
+            
         )
     }
 }

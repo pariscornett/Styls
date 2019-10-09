@@ -2,10 +2,11 @@ import React from 'react';
 
 const styles = {
   footer: {
-    position: "fixed",
-    top: "720px",
+    backgroundColor: "#ffffff",
+    position: "absolute",
+    left: "-70px",
+    top: "900px",
     width: 1500,
-    backgroundColor: "#bcd2d9",
     color: "#c6a52f"
   }
 }

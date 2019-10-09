@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const styles = {
     navigation: {
-        backgroundColor: "#bcd2d9"
+        backgroundColor: "#ffffff"
     },
     links: {
         color: "#c6a52f"
