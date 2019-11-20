@@ -14,8 +14,8 @@
 [You can check out the app for yourself here. ](https://styls.herokuapp.com/)
 
 ### STYLS was created by: 
-1. Paris Cornett (user authentication, server setup, styling--pariscornettdevelopment@gmail.com)
-2. Chris Williams (photo uploads--chrisaaronwilliams@gmail.com) 
-3. Micaela Bray (form submissions--micaela.bray@gmail.com)
+1. Paris Cornett (user authentication, server setup, styling-- pariscornettdevelopment@gmail.com)
+2. Chris Williams (photo uploads-- chrisaaronwilliams@gmail.com) 
+3. Micaela Bray (form submissions-- micaela.bray@gmail.com)
 
 
