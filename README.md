@@ -1,4 +1,5 @@
-# STYLS
+# STYLS 
+<dd><em> In active development </em></dd>
 
 ## A virtual closet to help keep all your garments organized and on the go.
 <dd>Create an account with your email, and start uploading photos of clothing in minutes. It's easy! </dd>
